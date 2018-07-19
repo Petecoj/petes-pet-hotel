@@ -17,7 +17,7 @@ app.service('HotelService', ['$http', function ($http) {
             data: petToAdd
         }).then(function(response){
             console.log(response);
-            self.getPets
+            self.getPets()
         }).catch(function(error){
             console.log('error', error);
             res.sendStatus(500);
@@ -33,10 +33,9 @@ app.service('HotelService', ['$http', function ($http) {
             self.petsList.list = response.data.rows
         }).catch(function(error){
             console.log('problem with GET',error);
-            res.sendStatus(500);
         })
     }
-
+self.getPets();
 
 
 }]);

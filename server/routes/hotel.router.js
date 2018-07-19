@@ -5,6 +5,18 @@ const pool = require('../modules/pool.js');
 
 
 
+router.get('/', (req, res) => {
+    pool.query('SELECT * FROM "hotelpets"')
+        .then((results) => {
+            console.log(results);
+            res.send(results);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        })
+
+});
 
 
 
@@ -16,8 +28,19 @@ const pool = require('../modules/pool.js');
 
 
 
+router.get('/', (req, res) => {
 
+    pool.query('SELECT * FROM "hotelowners"')
+        .then((result) => {
+            console.log(result);
+            res.send(result);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        })
 
+});
 
 
 module.exports = router;

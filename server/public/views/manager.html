@@ -1,17 +1,34 @@
 <form>
-        <p>
-            <label>Name
-                <input type="text">
-            </label>
-            <label>Color
-                <input type="text">
-            </label>
-            <label>Breed
-                <input type="text">
-            </label>
-            <select>
-                <option disable selected value>--Select Option--</option>
-                <option ng-repeat="owner in vm.petOwners">{{owner}}</option>
-            </select>
-            <button ng-click="vm.addPet()">Submit</button>
-        </p>
+    <p>
+        <label>Name
+            <input type="text">
+        </label>
+        <label>Color
+            <input type="text">
+        </label>
+        <label>Breed
+            <input type="text">
+        </label>
+        <select>
+            <option disable selected value>--Select Option--</option>
+            <option ng-repeat="owner in vm.petOwners">{{owner}}</option>
+        </select>
+        <button ng-click="vm.addPet()">Submit</button>
+    </p>
+
+    <table>
+        <thead>
+            <th>Owner</th>
+            <th>Pet</th>
+            <th>Breed</th>
+            <th>Color</th>
+            <th>Checked In</th>
+            <th>Actions</th>
+        </thead>
+        <tbody ng-repeat="pet in vm.hotelPets.list">
+            <td>{{pet.owner}}</td>
+            <td>{{pet.name}}</td>
+            <td>{{pet.breed}}</td>
+            <td>{{pet.color}}</td>
+        </tbody>
+    </table>
