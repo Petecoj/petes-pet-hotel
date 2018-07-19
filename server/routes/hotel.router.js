@@ -6,7 +6,7 @@ const pool = require('../modules/pool.js');
 
 
 router.get('/', (req, res) => {
-    pool.query('SELECT * FROM "hotelpets"')
+    pool.query('SELECT * FROM "hotelpets" JOIN "hotelowners" ON "hotelpets".owner_id = "hotelowners".id;')
         .then((results) => {
             console.log(results);
             res.send(results);
@@ -17,6 +17,22 @@ router.get('/', (req, res) => {
         })
 
 });
+
+router.post('/', (req, res) => {
+    pool.query('INSERT INTO "hotelspets" ("name", "breed",color", "owner_id") ')
+        .then((results) => {
+            console.log(results);
+            res.send(results);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        })
+
+});
+
+
+
 
 
 

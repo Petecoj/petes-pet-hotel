@@ -26,9 +26,14 @@
             <th>Actions</th>
         </thead>
         <tbody ng-repeat="pet in vm.hotelPets.list">
-            <td>{{pet.owner}}</td>
+            <td>{{pet.owner_name}}</td>
             <td>{{pet.name}}</td>
             <td>{{pet.breed}}</td>
             <td>{{pet.color}}</td>
+            <td>  </td>
+            <td>
+                <button>Delete</button>
+                <button>Check In</button>
+            </td>
         </tbody>
     </table>
