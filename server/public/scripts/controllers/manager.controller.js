@@ -3,4 +3,8 @@ app.controller('ManagerController', ['HotelService', function (HotelService) {
 
     let self = this;
 
+
+    self.addPet = function(petToAdd){
+        HotelService.addPet(petToAdd);
+    }
 }]);

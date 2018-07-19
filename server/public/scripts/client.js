@@ -3,15 +3,15 @@ let app = angular.module('HotelApp',['ngRoute']);
 app.config(function ($routeProvider) {
 
     $routeProvider
-      .when('/home', {
+      .when('/dashboard', {
         templateUrl: 'views/dashboard.html',
-        controller: 'HomeController as vm'
+        controller: 'DashboardController as vm'
       })
-      .when('/sale', {
+      .when('/manager', {
         templateUrl: 'views/manager.html',
-        controller: 'SaleController as vm'
+        controller: 'ManagerController as vm'
       })
       .otherwise({
-        redirectTo: '/add'
+        redirectTo: '/'
       })
   });

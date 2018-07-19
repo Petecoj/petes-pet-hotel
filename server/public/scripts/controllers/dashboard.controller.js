@@ -3,4 +3,7 @@ app.controller('DashboardController', ['HotelService', function (HotelService) {
 
     let self = this;
 
+    self.message = HotelService.serviceMessage;
+    console.log(self.message);
+    
 }]);

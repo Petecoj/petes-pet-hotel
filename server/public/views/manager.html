@@ -1,0 +1,17 @@
+<form>
+        <p>
+            <label>Name
+                <input type="text">
+            </label>
+            <label>Color
+                <input type="text">
+            </label>
+            <label>Breed
+                <input type="text">
+            </label>
+            <select>
+                <option disable selected value>--Select Option--</option>
+                <option ng-repeat="owner in vm.petOwners">{{owner}}</option>
+            </select>
+            <button ng-click="vm.addPet()">Submit</button>
+        </p>
