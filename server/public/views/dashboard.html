@@ -1,9 +1,9 @@
 <form>
         <p>
             <label>Add Owner
-                <input type="text">
+                <input type="text" ng-model="vm.newOwner.name">
             </label>
-            <button ng-click="vm.addOwner()">Submit</button>
+            <button ng-click="vm.addOwner(vm.newOwner)">Submit</button>
         </p>
 
 <table>
@@ -12,10 +12,13 @@
         <th>Number of Pets</th>
         <th>Actions</th>
     </thead>
-    <tbody>
-        <td></td>
-        <td></td>
-        <td></td>
+    <tbody  ng-repeat="owner in vm.petOwners.list">
+        <td>{{owner.owner_name}}</td>
+        
+        <td>{{owner.petcount}}</td>
+        <td>
+            <button>DELETE</button>
+        </td>
     </tbody>
 
 </table>

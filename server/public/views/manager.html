@@ -1,21 +1,21 @@
 <form>
     <p>
         <label>Name
-            <input type="text">
+            <input ng-model = "vm.newPet.name"type="text">
         </label>
         <label>Color
-            <input type="text">
+            <input ng-model = "vm.newPet.color" type="text">
         </label>
         <label>Breed
-            <input type="text">
+            <input ng-model = "vm.newPet.breed"type="text">
         </label>
-        <select>
+        <select ng-model = "vm.newPet.owner_id" >
             <option disable selected value>--Select Option--</option>
-            <option ng-repeat="owner in vm.petOwners">{{owner}}</option>
+            <option ng-repeat="owner in vm.petOwners.list" value = "{{owner.id}}">{{owner.owner_name}}</option>
         </select>
-        <button ng-click="vm.addPet()">Submit</button>
+        <button ng-click="vm.addPet(vm.newPet)">Submit</button>
     </p>
-
+    <!-- ng-options="vm.ownersList.list.id as vm.ownersList.list.owner_name" ng-model="vm.newPet.owner_id" -->
     <table>
         <thead>
             <th>Owner</th>

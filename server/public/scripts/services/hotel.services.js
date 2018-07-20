@@ -1,6 +1,6 @@
 app.service('HotelService', ['$http', function ($http) {
     let self = this;
- 
+
 
     self.petsList = {
         list: []
@@ -10,32 +10,58 @@ app.service('HotelService', ['$http', function ($http) {
         list: []
     };
 
-    self.addPet = function(petToAdd){
+    self.addPet = function (petToAdd) {
         $http({
-            method:'POST',
+            method: 'POST',
             url: '/pets',
             data: petToAdd
-        }).then(function(response){
+        }).then(function (response) {
             console.log(response);
             self.getPets()
-        }).catch(function(error){
+        }).catch(function (error) {
             console.log('error', error);
-            res.sendStatus(500);
         })
     };
 
-    self.getPets = function(){
+    self.getPets = function () {
         $http({
             method: 'GET',
             url: '/pets'
-        }).then(function(response){
+        }).then(function (response) {
             console.log(response);
             self.petsList.list = response.data.rows
-        }).catch(function(error){
-            console.log('problem with GET',error);
+        }).catch(function (error) {
+            console.log('problem with GET', error);
         })
     }
-self.getPets();
+
+    self.addOwner = function (ownerToAdd) {
+        $http({
+            method: 'POST',
+            url: '/owners',
+            data: ownerToAdd
+        }).then(function (response) {
+            console.log(response);
+           self.getOwners();
+        }).catch(function (error) {
+            console.log('error on owner POST', error);
+        })
+    }
+    self.getOwners = function () {
+        $http({
+            method: 'GET',
+            url: '/owners'
+        }).then(function (response) {
+            console.log(response);
+            self.ownersList.list = response.data.rows
+            console.log(self.ownersList);
+            
+        }).catch(function (error) {
+            console.log('problem with GET', error);
+        })
+    }
+    self.getOwners();
+    self.getPets();
 
 
 }]);

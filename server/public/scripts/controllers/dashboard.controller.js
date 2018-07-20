@@ -1,8 +1,19 @@
 app.controller('DashboardController', ['HotelService', function (HotelService) {
-    console.log('Dashboard Controller works');
+  
 
     let self = this;
 
+    self.petOwners = HotelService.ownersList;
+
+    self.addOwner = function(newOwner){
+        console.log(newOwner);
+        HotelService.addOwner(newOwner);
+    }
+
+
+   
+
+ 
    
     
 }]);
