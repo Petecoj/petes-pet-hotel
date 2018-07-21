@@ -33,7 +33,7 @@
             <td>{{pet.checked_in}} </td>
             <td>
                 <button ng-click="vm.deletePet(pet.pet_id)">Delete</button>
-                <button>Check In</button>
+                <button ng-click="vm.checkIn(pet)">Check In</button>
             </td>
         </tbody>
     </table>

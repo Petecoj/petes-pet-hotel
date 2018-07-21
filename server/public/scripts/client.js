@@ -12,6 +12,6 @@ app.config(function ($routeProvider) {
         controller: 'ManagerController as vm'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/dashboard'
       })
   });

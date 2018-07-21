@@ -90,6 +90,23 @@ app.service('HotelService', ['$http', function ($http) {
         
         });
     }
+    self.checkIn = function(pet){
+        console.log(pet);
+        
+        $http({
+            url: `/pets/${pet.pet_id}`,
+            method: 'PUT',
+            data: pet._id
+        }).then(function(response){
+            console.log('PUT', response);
+            self.getPets();
+
+        }).catch(function(error){
+            console.log('error in PUT', error);
+            
+        })
+      
+    } 
 
 
     self.getOwners();
