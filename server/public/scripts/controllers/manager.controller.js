@@ -7,5 +7,5 @@ app.controller('ManagerController', ['HotelService', function (HotelService) {
     self.addPet = function(petToAdd){
         HotelService.addPet(petToAdd);
     }
-    
+    self.deletePet = HotelService.deletePet;
 }]);

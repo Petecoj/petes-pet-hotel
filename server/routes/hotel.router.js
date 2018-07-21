@@ -6,7 +6,15 @@ const pool = require('../modules/pool.js');
 
 
 router.get('/', (req, res) => {
-    pool.query(`SELECT * FROM "hotelpets" JOIN "hotelowners" ON "hotelpets".owner_id = "hotelowners".id;`)
+    pool.query(`SELECT "p".id as "pet_id",
+                       "p".name,
+                       "p".breed,
+                       "p".color,
+                       "p".owner_id,
+                       "p".date,
+                       "p".checked_in,
+                       "o".owner_name
+    FROM "hotelpets" AS "p" JOIN "hotelowners" AS "o" ON "o".id = "p".owner_id  ;`)
 	
 
         .then((results) => {
@@ -34,18 +42,19 @@ router.post('/', (req, res) => {
 
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
+router.delete('/:id', (req, res) => {
+    console.log('delete from hotelpets', req.params);
+    const petId = req.params.id;
+    pool.query('DELETE FROM "hotelpets" WHERE "id" = $1;', [petId])
+        .then((result) => {
+            console.log('made it to delete');
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log('', error);
+            res.sendStatus(500);
+        });
+});
 
 
 

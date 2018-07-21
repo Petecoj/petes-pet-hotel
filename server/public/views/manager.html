@@ -30,9 +30,9 @@
             <td>{{pet.name}}</td>
             <td>{{pet.breed}}</td>
             <td>{{pet.color}}</td>
-            <td>  </td>
+            <td>{{pet.checked_in}} </td>
             <td>
-                <button>Delete</button>
+                <button ng-click="vm.deletePet(pet.pet_id)">Delete</button>
                 <button>Check In</button>
             </td>
         </tbody>
