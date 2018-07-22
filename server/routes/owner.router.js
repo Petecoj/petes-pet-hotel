@@ -38,14 +38,11 @@ router.delete('/:id', (req, res) => {
     console.log('hello from log', req.params);
     console.log('delete from owners', req.params.id);
     const ownerId = req.params.id;
- 
-    
     pool.query(`DELETE FROM "hotelowners" WHERE "id" = $1;`, [ownerId])
         .then((result) => {
             res.sendStatus(200);
         })
         .catch((error) => {
-        
             res.sendStatus(500);
         });
 });

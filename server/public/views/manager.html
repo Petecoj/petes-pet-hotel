@@ -1,39 +1,54 @@
+
+
+<h1>Add a Pet!</h1>
 <form>
     <p>
         <label>Name
-            <input ng-model = "vm.newPet.name"type="text">
+            <input class="form-control form-group-row" ng-model="vm.newPet.name" type="text">
         </label>
         <label>Color
-            <input ng-model = "vm.newPet.color" type="text">
+            <input class="form-control form-group-row" ng-model="vm.newPet.color" type="text">
         </label>
         <label>Breed
-            <input ng-model = "vm.newPet.breed"type="text">
+            <input class="form-control form-group-row" ng-model="vm.newPet.breed" type="text">
         </label>
-        <select ng-model = "vm.newPet.owner_id" >
-            <option disable selected value>--Select Option--</option>
-            <option ng-repeat="owner in vm.petOwners.list" value = "{{owner.id}}">{{owner.owner_name}}</option>
-        </select>
-        <button ng-click="vm.addPet(vm.newPet)">Submit</button>
+        <label>
+            <select class="form-control form-group-row" ng-model="vm.newPet.owner_id">
+                <option disable selected value>--Select Owner--</option>
+                <option ng-repeat="owner in vm.petOwners.list | orderBy: 'owner_name'" value="{{owner.id}}">{{owner.owner_name}}</option>
+            </select>
+        </label>
+        <button class="btn-success" ng-click="vm.addPet(vm.newPet)">Submit</button>
+
+
+        <br>
     </p>
-    <!-- ng-options="vm.ownersList.list.id as vm.ownersList.list.owner_name" ng-model="vm.newPet.owner_id" -->
-    <table>
+    <h1>Registered Pets </h1>
+    <table class="table">
         <thead>
             <th>Owner</th>
-            <th>Pet</th>
+            <th>Pet Name</th>
             <th>Breed</th>
             <th>Color</th>
-            <th>Checked In</th>
+            <th>Checked In/Out</th>
             <th>Actions</th>
         </thead>
-        <tbody ng-repeat="pet in vm.hotelPets.list">
+        <tbody ng-repeat="pet in vm.hotelPets.list | orderBy: '-checked_in'">
             <td>{{pet.owner_name}}</td>
             <td>{{pet.name}}</td>
             <td>{{pet.breed}}</td>
             <td>{{pet.color}}</td>
-            <td>{{pet.checked_in}} </td>
+            <td  ng-if="pet.checked_in">
+                <span>
+                    <img id="check" ng-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd3HD2Y2fkKAxhGdryZVkddi0p6YbLlLkK2xMZaEkVx63aD08U">
+                </span>Checked IN
+            </td>
+
+            <td ng-if="!pet.checked_in">Checked OUT </td>
             <td>
-                <button ng-click="vm.deletePet(pet.pet_id)">Delete</button>
-                <button ng-click="vm.checkIn(pet)">Check In</button>
+                <button class="btn-danger" ng-click="vm.deletePet(pet.pet_id)">Delete</button>
+                <button ng-if="!pet.checked_in" class="btn-primary" ng-click="vm.checkIn(pet)">Check In</button>
+                <button ng-if="pet.checked_in" class="btn-warning" ng-click="vm.checkIn(pet)">Check Out</button>
             </td>
         </tbody>
     </table>

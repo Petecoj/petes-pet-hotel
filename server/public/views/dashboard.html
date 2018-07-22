@@ -1,3 +1,5 @@
+
+<h3>Add an Owner</h3>
 <form>
         <p>
             <label>Add Owner
@@ -6,18 +8,17 @@
             <button ng-click="vm.addOwner(vm.newOwner)">Submit</button>
         </p>
 
-<table>
+<table class="table">
     <thead>
         <th>Owner</th>
         <th>Number of Pets</th>
         <th>Actions</th>
     </thead>
-    <tbody  ng-repeat="owner in vm.petOwners.list">
+    <tbody  ng-repeat="owner in vm.petOwners.list | orderBy: '-petcount'">
         <td>{{owner.owner_name}}</td>
-        
         <td>{{owner.petcount}}</td>
         <td>
-            <button ng-click="vm.deleteOwner(owner.id)">DELETE</button>
+            <button class="btn-danger" ng-click="vm.deleteOwner(owner.id)">Delete</button>
         </td>
     </tbody>
 

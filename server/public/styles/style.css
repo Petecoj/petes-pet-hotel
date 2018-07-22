@@ -1,0 +1,28 @@
+
+#check{
+    width:25px;
+    height:25px;
+}
+/* #container{
+    position: auto;
+    padding: auto;
+    margin: auto;
+    opacity: 1;
+}
+
+#container img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: auto;
+   pointer-events: none;
+    opacity: 0.4;
+} */
+h1{
+    text-align: center;
+    margin: 25px;
+}
+h3{
+    text-align: center;
+
+}
