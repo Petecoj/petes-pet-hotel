@@ -19,9 +19,11 @@ app.service('HotelService', ['$http', function ($http) {
             console.log(response);
             self.getPets();
             self.getOwners();
+            
         }).catch(function (error) {
             console.log('error', error);
         })
+     
     };
 
     self.getPets = function () {
@@ -42,7 +44,6 @@ app.service('HotelService', ['$http', function ($http) {
             url: '/owners',
             data: ownerToAdd
         }).then(function (response) {
-            console.log(response);
            self.getOwners();
         }).catch(function (error) {
             console.log('error on owner POST', error);
@@ -63,18 +64,21 @@ app.service('HotelService', ['$http', function ($http) {
     }
     self.deleteOwner = function(ownerId) {
         console.log('in delete', ownerId);
-        
         $http({
             method: 'DELETE',
             url: `/owners/${ownerId}`
         }).then((response) => {
             console.log('made it to delete');
-            
             self.getOwners();
             self.getPets();
         }).catch((error) => {
-            console.log(error);
+            swal({
+                title: "Warning!",
+                text: "You can't delete an owner who has a pet checked in!",
+                icon: "warning",
+              })
         });
+  
     }
     self.deletePet = function(petId) {
         $http({
@@ -107,10 +111,6 @@ app.service('HotelService', ['$http', function ($http) {
         })
       
     } 
-
-
     self.getOwners();
     self.getPets();
-
-
 }]);

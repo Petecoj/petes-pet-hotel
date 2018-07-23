@@ -1,23 +1,23 @@
 
-#check{
+.check{
     width:25px;
     height:25px;
 }
-/* #container{
-    position: auto;
-    padding: auto;
-    margin: auto;
-    opacity: 1;
+#container{
+background-color: blanchedalmond
 }
 
-#container img {
-    position: absolute;
+.Photo {
+  
     left: 0;
     top: 0;
-    width: auto;
+    width: 300px;
+    height:200px;
    pointer-events: none;
-    opacity: 0.4;
-} */
+   opacity: .8;
+    float: right;
+
+} 
 h1{
     text-align: center;
     margin: 25px;
@@ -25,4 +25,13 @@ h1{
 h3{
     text-align: center;
 
+}
+#checked_in{
+    background-color: lightgreen;
+}
+#checked_out{
+    background-color: rgb(255, 52, 52)
+}
+body,html,form {
+    background-color: blanchedalmond
 }

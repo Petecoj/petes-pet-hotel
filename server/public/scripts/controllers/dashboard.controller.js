@@ -8,6 +8,7 @@ app.controller('DashboardController', ['HotelService', function (HotelService) {
     self.addOwner = function(newOwner){
         console.log(newOwner);
         HotelService.addOwner(newOwner);
+      
     }
 
     self.deleteOwner = HotelService.deleteOwner;
@@ -22,6 +23,7 @@ app.controller('DashboardController', ['HotelService', function (HotelService) {
             
             HotelService.deleteOwner(owner)
         }
+
     }
 
    
