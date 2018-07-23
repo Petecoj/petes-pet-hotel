@@ -12,11 +12,9 @@ router.get('/', (req, res) => {
                 GROUP BY "hotelowners".owner_name, "hotelowners".id;`)
 
         .then((results) => {
-            console.log(results);
             res.send(results);
         })
         .catch((err) => {
-            console.log(err);
             res.sendStatus(500);
         })
 
@@ -25,18 +23,14 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     pool.query('INSERT INTO "hotelowners" ("owner_name") VALUES($1)',[req.body.name])
         .then((results) => {
-            console.log(results);
             res.send(results);
         })
         .catch((err) => {
-            console.log(err);
             res.sendStatus(500);
         })
 });
 
 router.delete('/:id', (req, res) => {
-    console.log('hello from log', req.params);
-    console.log('delete from owners', req.params.id);
     const ownerId = req.params.id;
     pool.query(`DELETE FROM "hotelowners" WHERE "id" = $1;`, [ownerId])
         .then((result) => {

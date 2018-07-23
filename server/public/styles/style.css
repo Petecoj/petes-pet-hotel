@@ -27,8 +27,9 @@ h1{
 h3{
     text-align: center;
     font-family: fantasy;
-    
-
+}
+h2{
+    font-family: 'Courier New', Courier, monospace;
 }
 #checked_in{
     background-color: lightgreen;
