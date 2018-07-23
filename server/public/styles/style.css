@@ -21,9 +21,13 @@ background-color: blanchedalmond
 h1{
     text-align: center;
     margin: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    
 }
 h3{
     text-align: center;
+    font-family: fantasy;
+    
 
 }
 #checked_in{

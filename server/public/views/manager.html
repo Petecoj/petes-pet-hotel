@@ -19,9 +19,8 @@
             </select>
         </label>
         <button class="btn-success" ng-click="vm.addPet(vm.newPet)">Submit</button>
-
-
         <br>
+        <input ng-model="search" placeholder="Search Good Boys"
     </p>
     <h2>Registered Doggo's </h2>
     <table class="table table-hover">
@@ -33,7 +32,7 @@
             <th>Checked In/Out</th>
             <th>Actions</th>
         </thead>
-        <tbody ng-repeat="pet in vm.hotelPets.list | orderBy: '-checked_in'">
+        <tbody ng-repeat="pet in vm.hotelPets.list | filter: search |orderBy: '-checked_in'">
             <td>{{pet.owner_name}}</td>
             <td>{{pet.name}}</td>
             <td>{{pet.breed}}</td>

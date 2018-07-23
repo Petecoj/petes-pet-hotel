@@ -61,23 +61,4 @@ router.put('/:id', (req, res) => {
         })
 });
 
-
-
-
-
-// router.get('/', (req, res) => {
-
-//     pool.query('SELECT * FROM "hotelowners"')
-//         .then((result) => {
-//             console.log(result);
-//             res.send(result);
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//             res.sendStatus(500);
-//         })
-
-// });
-
-
 module.exports = router;

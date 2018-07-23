@@ -7,6 +7,8 @@
             </label>
             <button ng-click="vm.addOwner(vm.newOwner)">Submit</button>
         </p>
+        <input ng-model="search" placeholder="Search Owners">
+        <br>
 
 <table class="table table-hover">
     <thead>
@@ -14,7 +16,7 @@
         <th>Number of Pets</th>
         <th>Actions</th>
     </thead>
-    <tbody  ng-repeat="owner in vm.petOwners.list | orderBy: '-petcount'">
+    <tbody  ng-repeat="owner in vm.petOwners.list | filter: search | orderBy: '-petcount'">
         <td>{{owner.owner_name}}</td>
         <td>{{owner.petcount}}</td>
         <td>
