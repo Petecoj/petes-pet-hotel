@@ -1,6 +1,6 @@
 
 
-<h1>Add a Pet!</h1>
+<h3>Add a Pupper!</h3>
 <form>
     <p>
         <label>Name
@@ -23,7 +23,7 @@
 
         <br>
     </p>
-    <h1>Registered Pets </h1>
+    <h2>Registered Doggo's </h2>
     <table class="table table-hover">
         <thead>
             <th>Owner</th>
@@ -46,7 +46,7 @@
 
             <td id="checked_out"ng-if="!pet.checked_in">
                 <span>
-                    <img class = "check" ng-src="https://media.fox5atlanta.com/media.fox5atlanta.com/photo/2017/02/23/xx_1487867124029_2797385_ver1.0_640_360.jpg"
+                    <img class = "check" ng-src="data:image/png;base64,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"
                 </span>Checked OUT
             </td>
             <td>
